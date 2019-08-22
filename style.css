@@ -19,12 +19,24 @@ body{
     color: #2E2E2E;
 }
 .location{
-    height: 30vh;
+    height: 60vh;
     display: grid;
     align-content: center;
     justify-items: center;
 }
-.location-subtitle, .degree-section{
+.location-timezone{
+    margin-bottom: 20px;
+}
+.location-subtitle{
+    display:  flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+}
+.icon{
+    margin-bottom: 200px;
+}
+.degree-section{
     display: flex;
     align-items: center;
 }
