@@ -4,10 +4,17 @@ window.addEventListener('load', () => {
     let temperatureSummary = document.querySelector('.temperature-summary');
     let temperatureTemp = document.querySelector('.degree');
     let locationTimeZone = document.querySelector('.location-timezone');
-    let date = new Date;
-    let day = date.getDay;
-    let displayDay = document.querySelector('.location-day');
-   
+    let date = new Date();
+                        
+    
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    
+    //Day and Hour
+    
+    document.querySelector('.location-time').innerHTML = hours + ':' + minutes;
+    
     //icons
     
 
@@ -31,6 +38,11 @@ window.addEventListener('load', () => {
                 .then(data =>{
                     
                     if(data.timezone.includes('America')){
+                        let days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+                        let dayName = days[date.getDay()];
+                        document.querySelector('.location-day').innerHTML = dayName;
+
+
                         const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}?lang=es`;
                         
                         fetch(api_two)
@@ -50,7 +62,12 @@ window.addEventListener('load', () => {
                                 console.log(data);
                                 setIcons(icon, document.querySelector('.icon'));
                             });
+                            
                     }else{ 
+                        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                        let dayName = days[date.getDay()];
+                        document.querySelector('.location-day').innerHTML = dayName;    
+
                         const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;
                         fetch(api_two)
                         .then(response => {
