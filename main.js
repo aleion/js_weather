@@ -20,8 +20,16 @@ window.addEventListener('load', () => {
             
             const proxy = 'https://cors-anywhere.herokuapp.com/';
             const api = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;        
-
+            const geo = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${long}`;
             
+            fetch(geo)
+                .then(responseG =>{
+                    return responseG.json();
+                })
+                .then(dataGeo =>{
+                    console.log(dataGeo.address.county);
+                    locationTimeZone.textContent = dataGeo.address.city;
+                })
             
             fetch(api)
                 .then(response => {
@@ -35,8 +43,11 @@ window.addEventListener('load', () => {
 
                    temperatureTemp.textContent = celsFixed;
                    temperatureSummary.textContent = summary;
-                   locationTimeZone.textContent = data.timezone;
                    
+                   
+                   console.log(data);
+                   
+
                    setIcons(icon, document.querySelector('.icon'));
             });
         });    
@@ -69,14 +80,3 @@ window.addEventListener('load', () => {
 });
 
 
-function iniciarMap(){
-    let long;
-    let lat;
-
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(position =>{
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
-        });
-    }
-}
