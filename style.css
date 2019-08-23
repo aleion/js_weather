@@ -49,3 +49,7 @@ body{
 .temperature{
     text-align: center;
 }
+#map{
+    width: 200px;
+    height: 200px;
+}
