@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
                    setIcons(icon, document.querySelector('.icon'));
             });
         });    
-    }
+    };
 
     function setIcons(icon, iconID){ 
        let sunyIcon = '<svg width="180px" height="180px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477 492"><defs></defs><style>.cls-1{fill:#ff9c47;}.cls-2{fill:#ffcc47;}</style></defs><title>sun</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="238.5" cy="253.5" r="238.5"/><circle class="cls-2" cx="238.5" cy="238.5" r="238.5"/></g></g></svg>';
@@ -58,6 +58,25 @@ window.addEventListener('load', () => {
                 break;
                     
                 
-        }   
-    } 
+        };
+    };
+    
+    
+
+   
+
+
 });
+
+
+function iniciarMap(){
+    let long;
+    let lat;
+
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(position =>{
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
+        });
+    }
+}
