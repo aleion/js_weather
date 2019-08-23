@@ -22,34 +22,71 @@ window.addEventListener('load', () => {
             const api = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;        
             const geo = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${long}`;
             
+            let api_two;
+
+            fetch(api)
+                .then(response =>{
+                    return response.json();
+                })
+                .then(data =>{
+                    
+                    if(data.timezone.includes('America')){
+                        const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}?lang=es`;
+                        
+                        fetch(api_two)
+                            .then(response => {
+                            return response.json();
+                            })
+        
+                            .then(data =>{
+                                const {temperature, summary, icon} = data.currently;
+                                const farenhToCels = (5 / 9) * (temperature - 32);
+                                const celsFixed = farenhToCels.toFixed(1);
+                                console.log(data.timezone);
+                    
+                                temperatureTemp.textContent = celsFixed;
+                                temperatureSummary.textContent = summary;
+                   
+                   
+                                console.log(data);
+                   
+
+                                setIcons(icon, document.querySelector('.icon'));
+                            });
+                    }else{ 
+                        const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;
+                        fetch(api_two)
+                        .then(response => {
+                        return response.json();
+                        })
+    
+                        .then(data =>{
+                            const {temperature, summary, icon} = data.currently;
+                            const farenhToCels = (5 / 9) * (temperature - 32);
+                            const celsFixed = farenhToCels.toFixed(1);
+                            console.log(data.timezone);
+                
+                            temperatureTemp.textContent = celsFixed;
+                            temperatureSummary.textContent = summary;
+               
+               
+                            console.log(data);
+               
+
+                            setIcons(icon, document.querySelector('.icon'));
+                        });
+                    }
+                })
+            
             fetch(geo)
                 .then(responseG =>{
                     return responseG.json();
                 })
                 .then(dataGeo =>{
-                    console.log(dataGeo.address.county);
                     locationTimeZone.textContent = dataGeo.address.city;
                 })
             
-            fetch(api)
-                .then(response => {
-                    return response.json();
-                })
-        
-                .then(data =>{
-                   const {temperature, summary, icon} = data.currently;
-                   const farenhToCels = (5 / 9) * (temperature - 32);
-                   const celsFixed = farenhToCels.toFixed(1);
-
-                   temperatureTemp.textContent = celsFixed;
-                   temperatureSummary.textContent = summary;
-                   
-                   
-                   console.log(data);
-                   
-
-                   setIcons(icon, document.querySelector('.icon'));
-            });
+            
         });    
     };
 
