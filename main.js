@@ -111,31 +111,31 @@ window.addEventListener('load', () => {
                 
                 break;
             case 'clear-night':
-                    iconID.innerHTML = '<img src="/icons/clear-night.png">';
+                    iconID.innerHTML = '<img src="icons/clear-night.png">';
                 break;
             case 'cloudy':
-                    iconID.innerHTML = '<img src="/icons/cloudy.png">';
+                    iconID.innerHTML = '<img src="icons/cloudy.png">';
                 break;
             case 'fog':
-                    iconID.innerHTML = '<img src="/icons/fog.png">';
+                    iconID.innerHTML = '<img src="icons/fog.png">';
                 break;
             case 'partly-cloudy-day':
-                    iconID.innerHTML = '<img src="/icons/partly-cloudy-day.png">'; 
+                    iconID.innerHTML = '<img src="icons/partly-cloudy-day.png">'; 
                 break;
             case 'partly-cloudy-night':
-                iconID.innerHTML = '<img src="/icons/partly-cloudy-night.png">';
+                iconID.innerHTML = '<img src="icons/partly-cloudy-night.png">';
                 break;
             case 'rain':
-                    iconID.innerHTML = '<img src="/icons/rain.png">';
+                    iconID.innerHTML = '<img src="icons/rain.png">';
                 break;
             case 'sleet':
-                    iconID.innerHTML = '<img src="/icons/sleet.png">';
+                    iconID.innerHTML = '<img src="icons/sleet.png">';
                 break;
             case 'snow':
-                    iconID.innerHTML = '<img src="/icons/snow.png">';
+                    iconID.innerHTML = '<img src="icons/snow.png">';
                 break;
             case 'wind':
-                    iconID.innerHTML = '<img src="/icons/wind.png">';
+                    iconID.innerHTML = '<img src="icons/wind.png">';
                 break;
             default:
                 //png                              
