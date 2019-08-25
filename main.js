@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
             lat = position.coords.latitude;
             
             const proxy = 'https://cors-anywhere.herokuapp.com/';
-            const api = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;        
+            const api = `${proxy}https://api.darksky.net/forecast/[API_KEY]/${lat},${long}`;        
             const geo = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${long}`;
             
             let api_two;
@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
                         document.querySelector('.location-day').innerHTML = dayName.toUpperCase();
 
 
-                        const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}?lang=es`;
+                        const api_two = `${proxy}https://api.darksky.net/forecast/[API_KEY]/${lat},${long}?lang=es`;
                         
                         fetch(api_two)
                             .then(response => {
@@ -68,7 +68,7 @@ window.addEventListener('load', () => {
                         let dayName = days[date.getDay()];
                         document.querySelector('.location-day').innerHTML = dayName.toUpperCase();    
 
-                        const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;
+                        const api_two = `${proxy}https://api.darksky.net/forecast/[API_KEY]/${lat},${long}`;
                         fetch(api_two)
                         .then(response => {
                         return response.json();
