@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
                     if(data.timezone.includes('America')){
                         let days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
                         let dayName = days[date.getDay()];
-                        document.querySelector('.location-day').innerHTML = dayName;
+                        document.querySelector('.location-day').innerHTML = dayName.toUpperCase();
 
 
                         const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}?lang=es`;
@@ -57,7 +57,7 @@ window.addEventListener('load', () => {
                                 console.log(data.timezone);
                     
                                 temperatureTemp.textContent = celsFixed;
-                                temperatureSummary.textContent = summary;
+                                temperatureSummary.textContent = summary.toUpperCase();
                    
                                 console.log(data);
                                 setIcons(icon, document.querySelector('.icon'));
@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
                     }else{ 
                         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                         let dayName = days[date.getDay()];
-                        document.querySelector('.location-day').innerHTML = dayName;    
+                        document.querySelector('.location-day').innerHTML = dayName.toUpperCase();    
 
                         const api_two = `${proxy}https://api.darksky.net/forecast/35fd525710b35a3b7c405b9103379707/${lat},${long}`;
                         fetch(api_two)
@@ -81,7 +81,7 @@ window.addEventListener('load', () => {
                             console.log(data);
                 
                             temperatureTemp.textContent = celsFixed;
-                            temperatureSummary.textContent = summary;
+                            temperatureSummary.textContent = summary.toUpperCase();
                
                
                             console.log(data);
@@ -97,7 +97,11 @@ window.addEventListener('load', () => {
                     return responseG.json();
                 })
                 .then(dataGeo =>{
-                    locationTimeZone.textContent = dataGeo.address.city;
+                    let city = dataGeo.address.city;
+                    locationTimeZone.textContent = city.toUpperCase();
+                    console.log(city);
+                    
+                    
                 })
         });    
     };
@@ -108,7 +112,7 @@ window.addEventListener('load', () => {
         
         switch(icon){
             case 'clear-day':
-                
+                    iconID.innerHTML = '<img src="icons/clear-day.png">';
                 break;
             case 'clear-night':
                     iconID.innerHTML = '<img src="icons/clear-night.png">';

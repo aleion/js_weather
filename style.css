@@ -1,8 +1,4 @@
-@font-face{
-    font-family: 'Montserrat';
-    src: url(/Montserrat/Montserrat-Light.ttf);
-    src: url(/Montserrat/Montserrat-Medium.ttf);
-}
+
 *{
     margin: 0;
     padding: 0;
@@ -15,7 +11,7 @@ body{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     color: #2E2E2E;
 }
 .location{
@@ -24,27 +20,47 @@ body{
     align-content: center;
     justify-items: center;
 }
-
+.location-timezone{
+    font-weight: 100;
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
 .location-subtitle{
     display:  flex;
     width: 100%;
     justify-content: space-evenly;
-
+    margin-bottom: 10px;
+}
+.location-subtitle h3{
+    font-weight: 500;
+    font-size: 16px;
+}
+ #location-separator{
+    font-weight: 100;
 }
 .degree-section{
     display: flex;
     align-items: center;
-}
-.degree-section{
-    font-size: 40px;
+    font-size: 35px;
+    font-weight: 100;
+    text-align: center;
 }
 .degree-section span{
-    font-size: 57px;
+    font-size: 55px;
+    font-weight: 100;
+}
+.degree{
+    font-weight: 100;
 }
 .temperature{
     text-align: center;
 }
-#map{
-    width: 200px;
-    height: 200px;
+.icon{
+    margin-top: 40px;
+}
+.temperature-summary{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
